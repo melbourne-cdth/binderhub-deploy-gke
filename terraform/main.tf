@@ -9,7 +9,6 @@ terraform {
 }
 
 provider "google" {
-    version     = "3.46.0"
     credentials = file(var.credentials_file)
     project     = var.project_id
     region      = var.region
@@ -59,5 +58,6 @@ resource "google_container_node_pool" "primary_node_pool" {
 
     management {
         auto_upgrade = true
+        auto_repair = true
     }
 }
